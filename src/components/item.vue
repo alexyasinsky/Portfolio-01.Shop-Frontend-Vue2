@@ -2,11 +2,13 @@
   <div>
     <template v-if="type === 'cart'">
       <div class="cartdrop__product">
-        <a :href="`single${item.id}`">
+        <router-link :to="'/single' + item.id">
           <img :src="item.img" :alt="'product-' + item.id" />
-        </a>
+        </router-link>
         <div class="cartdrop__product-desc">
-          <h4>{{ item.name }}</h4>
+          <router-link :to="'/single' + item.id">
+            <h4>{{ item.name }}</h4>
+          </router-link>
           <p class="cartdrop__product-rate">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -28,7 +30,9 @@
 
     <template v-if="type === 'catalog'">
       <div class="product">
+        <router-link :to="'/single' + item.id">
         <img :src="item.img" class="product__img" :alt="'product-' + item.id" />
+        </router-link>
         <router-link :to="'/single' + item.id" class="product__name">{{
           item.name
         }}</router-link>
@@ -44,9 +48,9 @@
         <div class="carttable__row">
           <div class="carttable__col">
             <figure class="cart__product">
-              <a :href="`single${item.id}`">
+              <router-link :to="`/single${item.id}`">
                 <img :src="item.img" :alt="'product-' + item.id"
-              /></a>
+                /></router-link>
               <figcaption>
                 <h5>
                   <router-link :to="`/single${item.id}`">{{
@@ -193,7 +197,7 @@ export default {
   }
 
   &:hover {
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17);
     transform: scale(1.05);
   }
 
@@ -220,7 +224,6 @@ export default {
 
   &__row {
     border-bottom: 1px solid #eaeaea;
-    padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
     padding: 22px 0;

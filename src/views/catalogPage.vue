@@ -152,7 +152,7 @@
           </div>
           <div class="filter__price">
             <h3 class="filter__name">Price</h3>
-            <fieldset oninput="userPrice.value=(price.value)" action="#">
+            <fieldset oninput="userPrice.value=(price.value)">
               <input
                   type="range"
                   name="range"
@@ -465,7 +465,7 @@ export default {
 
   &__pages {
     height: 44px;
-    width: 261px;
+    padding: 0 20px;
     background-color: #ffffff;
     border: 1px solid #ebebeb;
     border-radius: 3px;
